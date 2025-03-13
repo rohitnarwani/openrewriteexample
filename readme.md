@@ -16,6 +16,8 @@ Add the latest OpenRewrite Maven plugin to your pom.xml:
         </execution>
     </executions>
 </plugin>
+
+
 Step 1.2: Add OpenRewrite Recipes for Java Migration
 In your pom.xml, add the Java migration recipe dependency:
 
@@ -25,6 +27,8 @@ In your pom.xml, add the Java migration recipe dependency:
     <artifactId>rewrite-migrate-java</artifactId>
     <version>2.1.0</version>
 </dependency>
+
+
 2. Define an OpenRewrite Recipe for JDK 8 to 17 Migration
 Create a rewrite.yml file in the root of your project and add the following recipe:
 
