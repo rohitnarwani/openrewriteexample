@@ -79,3 +79,36 @@ mvn rewrite:run -Drewrite.activeRecipes=org.openrewrite.java.migrate.UpgradeToJa
 ```
 mvn rewrite:dryRun -Drewrite.configLocation=rewrite.yml -X
 ```
+Jdk17
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+            <version>5.40.0</version>
+            <configuration>
+                <activeRecipes>
+                    <recipe>org.openrewrite.java.migrate.Java8toJava17</recipe>
+                </activeRecipes>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>run-rewrite</id>
+                    <phase>process-sources</phase>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency>
+                    <groupId>org.openrewrite.recipe</groupId>
+                    <artifactId>rewrite-migrate-java</artifactId>
+                    <version>2.9.0</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
+```
