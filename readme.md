@@ -45,3 +45,37 @@ recipeList:
   - org.openrewrite.java.cleanup.ExplicitTypeToVar
   - org.openrewrite.java.cleanup.FinalizeLocalVariables
 ```
+3. CommanStaticAnalysis
+```yml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.CommonStaticAnalysis
+displayName: Common Static Code Analysis
+description: Applies static code analysis and best practices.
+recipeList:
+  - org.openrewrite.java.cleanup.RemoveUnusedImports
+  - org.openrewrite.java.cleanup.ExplicitTypeToVar
+  - org.openrewrite.java.cleanup.UnnecessaryThrows
+  - org.openrewrite.java.cleanup.NoDoubleBraceInitialization
+  - org.openrewrite.java.cleanup.RemoveUnusedLocalVariables
+  - org.openrewrite.java.cleanup.SimplifyBooleanExpressions
+  - org.openrewrite.java.cleanup.UseStringIsEmpty
+  - org.openrewrite.java.cleanup.IndexOfChecksShouldUseAConstant
+  - org.openrewrite.java.cleanup.UseDiamondOperator
+  - org.openrewrite.java.cleanup.Cleanup
+  - org.openrewrite.java.security.FindTextUseOfCreditCardNumber
+
+   ```
+
+Commands
+```
+mvn rewrite:run -Drewrite.configLocation=./rewrite.yml
+```
+```
+mvn rewrite:run -Drewrite.activeRecipes=com.example.CommonStaticAnalysis
+```
+```
+mvn rewrite:run -Drewrite.activeRecipes=org.openrewrite.java.migrate.UpgradeToJava17
+```
+```
+mvn rewrite:dryRun -Drewrite.configLocation=rewrite.yml -X
+```
